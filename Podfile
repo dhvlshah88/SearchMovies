@@ -1,12 +1,7 @@
-platform :ios, '8.0'
+platform :ios, '13.0'
 
 target 'SearchMovies' do
 
-pod ‘Masonry’
+  pod 'Masonry'
 
 end
-
-target 'SearchMoviesTests' do
-
-end
-
