@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  MainTabBarController.h
 //  SearchMovies
 //
 //  Created by Dhaval on 4/7/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
-
+@interface MainTabBarController : UITabBarController
 
 @end
-

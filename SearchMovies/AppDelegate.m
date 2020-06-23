@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTabBarController.h"
+#import "MoviesSearchViewController.h"
+#import "FavoriteMoviesViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) MainTabBarController *mainTabBarController;
 
 @end
 
@@ -16,7 +21,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    _mainTabBarController = [[MainTabBarController alloc] init];
+    
+    MoviesSearchViewController *moviesSearchViewController = [[MoviesSearchViewController alloc] init];
+    UINavigationController *firstNavigationViewController = [[UINavigationController alloc] initWithRootViewController:moviesSearchViewController];
+  
+    FavoriteMoviesViewController *favoriteViewController = [[FavoriteMoviesViewController alloc] init];
+    UINavigationController *secondNavigationViewController = [[UINavigationController alloc] initWithRootViewController:favoriteViewController];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:firstNavigationViewController, secondNavigationViewController, nil];
+    self.mainTabBarController.viewControllers = controllers;
+    self.mainTabBarController.selectedViewController = firstNavigationViewController;
+    
+    //create the window with the root controller
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.mainTabBarController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
